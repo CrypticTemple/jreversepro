@@ -146,8 +146,8 @@ abstract class AbstractClassOutputterImpl implements JVMConstants {
 
   /**
    * Returns a string that contains all the imported classes in the proper
-   * format as written in code. For eg, if the list contains p1.class1 ,
-   * p2.class2 , this generates a string with import statements for both of
+   * format as written in code. For eg, if the list contains p1.class1,
+   * p2.class2, this generates a string with import statements for both of
    * them. classes belonging to the default package are excluded. Also there is
    * an option by which we can exclude the classes that belong to a given
    * package ( current package ).
@@ -281,7 +281,7 @@ abstract class AbstractClassOutputterImpl implements JVMConstants {
       int baseVariableIndex = method.isStatic() ? 0 : 1;
       for (int i = 0; i < args.size(); i++) {
         if (i != 0) {
-          sb.append(" ,");
+          sb.append(", ");
         }
         String jvmArgType = args.get(i);
         String argType = Import.getClassName(TypeInferrer.getJLSType(
@@ -321,7 +321,7 @@ abstract class AbstractClassOutputterImpl implements JVMConstants {
       for (int i = 0; i < size; i++) {
         String thrownClass = throwsClasses.get(i);
         if (i > 0) {
-          sb.append(" ,");
+          sb.append(", ");
         }
         sb.append(Import.getClassName(thrownClass));
       }
