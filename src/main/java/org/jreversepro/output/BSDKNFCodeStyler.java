@@ -43,7 +43,6 @@ public class BSDKNFCodeStyler implements CodeStyler {
 
   public String outputLine(String str) {
     StringBuilder sb = new StringBuilder();
-    sb.append("\n");
     for (int i = 0; i < depth; ++i) {
       sb.append("    ");
     }

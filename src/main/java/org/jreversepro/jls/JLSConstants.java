@@ -208,5 +208,5 @@ public interface JLSConstants {
 
   String VALUE_1 = "1";
 
-  String ARGS_SEPARATOR = ",";
+  String ARGS_SEPARATOR = ", ";
 }

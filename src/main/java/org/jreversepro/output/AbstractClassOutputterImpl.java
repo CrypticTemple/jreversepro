@@ -78,7 +78,7 @@ abstract class AbstractClassOutputterImpl implements JVMConstants {
    *  Outputs current and super classes
    */
   protected void outputThisSuperClasses() {
-    sb.append("\n\n" + getTypeAsString() + " ");
+    sb.append("\n" + getTypeAsString() + " ");
 
     sb.append(Import.getClassName(clazz.getThisClass()));
     String superClass = clazz.getSuperClass();
@@ -95,7 +95,7 @@ abstract class AbstractClassOutputterImpl implements JVMConstants {
   protected void outputInterfaces() {
     List<String> interfaces = clazz.getInterfaces();
     if (interfaces.size() != 0) {
-      sb.append("\n\t\t " + JLSConstants.IMPLEMENTS + " ");
+      sb.append(" " + JLSConstants.IMPLEMENTS + " ");
       for (int i = 0; i < interfaces.size(); i++) {
         if (i != 0) {
           sb.append(JLSConstants.INTERFACE_DELIMITER);
@@ -109,21 +109,20 @@ abstract class AbstractClassOutputterImpl implements JVMConstants {
    *  output the Fields of the given class
    */
   protected void outputFields() {
-    sb.append("\n");
     for (Field field : clazz.getFields()) {
       String datatype = Import.getClassName(TypeInferrer.getJLSType(field
           .getDatatype(), false));
 
       String access = this.getAccessQualifier(field.getQualifier(), true);
 
-      sb.append("\n\t" + access);
-      sb.append(datatype);
+      sb.append(styler.outputLine(datatype));
       sb.append(" " + field.getName());
       String val = field.getValue();
       if (field.isFinal() && val.length() != 0) {
         sb.append(JLSConstants.EQUALTO + val);
       }
       sb.append(JLSConstants.END_OF_STATEMENT);
+      sb.append("\n");
     }
   }
 
@@ -261,7 +260,7 @@ abstract class AbstractClassOutputterImpl implements JVMConstants {
         .getReturnType(), false));
 
     String name = method.getName();
-    sb.append("\n\n    ");
+    sb.append("\n    ");
 
     if (name.compareTo(CLINIT) == 0) {
       sb.append(JLSConstants.STATIC);

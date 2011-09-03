@@ -44,6 +44,7 @@ public class StatementEmitter extends BlockEmitter {
   @Override
   protected void emitCurrentCode(EmitterTarget target, Block _block) {
     Statement stmt = (Statement) _block;
+    target.append("        ");
     target.append(stmt.getExpression().getJLSCode()
         + JLSConstants.END_OF_STATEMENT);
     target.append("\n");
