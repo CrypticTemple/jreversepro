@@ -56,14 +56,14 @@ To decompile,
 
 To Compile:
 ==========
-You need the ANT build tool available at the apache web site.
-http://jakarta.apache.org/ant.
+You need the Maven build tool available at the Apache web site.
 
-Having installed ANT,  the following targets are available.
+http://maven.apache.org/
 
-makejar - Builds the library file ( Executable jar ).
-compiler - Builds the class files ( Executable jar ).
-clean - Cleans all the build directories.
+Having installed Maven, run the following goals:
+
+mvn dependency:copy-dependencies
+mvn package
   
 Known Bugs
 ==========
