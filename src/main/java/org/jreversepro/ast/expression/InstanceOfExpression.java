@@ -36,8 +36,7 @@ public class InstanceOfExpression extends Expression {
     String classType = Import.getClassName(TypeInferrer.getJLSType(
         referenceType, false));
 
-    return reference.getJLSCode() + JLSConstants.SPACE
-        + JLSConstants.INSTANCEOF + JLSConstants.SPACE + classType;
+    return reference.getJLSCode() + " " + JLSConstants.INSTANCEOF + " " + classType;
   }
 
   Expression reference;

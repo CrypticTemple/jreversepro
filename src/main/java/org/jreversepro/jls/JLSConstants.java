@@ -84,8 +84,6 @@ public interface JLSConstants {
 
   String NEW = "new";
 
-  char SPACE = ' ';
-
   String OPEN_SQUARE_BRACKET = "[";
 
   String CLOSE_SQUARE_BRACKET = "]";
