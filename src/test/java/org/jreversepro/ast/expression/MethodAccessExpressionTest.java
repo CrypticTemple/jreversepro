@@ -26,6 +26,6 @@ public class MethodAccessExpressionTest {
     
     mex = new StaticMethodAccessExpression(null, null, null, args) ;
     
-    Assert.assertEquals("(4,6)", mex.serializedArgs());
+    Assert.assertEquals("(4, 6)", mex.serializedArgs());
   }
 }
