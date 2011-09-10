@@ -38,7 +38,7 @@ public class BSDKNFCodeStyler implements CodeStyler {
     } else {
       --depth;
     }
-    return outputLine("}\n");
+    return outputLine("}");
   }
 
   public String outputLine(String str) {
@@ -47,6 +47,7 @@ public class BSDKNFCodeStyler implements CodeStyler {
       sb.append("    ");
     }
     sb.append(str);
+    sb.append("\n");
     return sb.toString();
   }
 

@@ -115,14 +115,17 @@ abstract class AbstractClassOutputterImpl implements JVMConstants {
 
       String access = this.getAccessQualifier(field.getQualifier(), true);
 
-      sb.append(styler.outputLine(datatype));
-      sb.append(" " + field.getName());
+      StringBuilder fieldStringBuilder = new StringBuilder();
+
+      fieldStringBuilder.append(datatype);
+      fieldStringBuilder.append(" " + field.getName());
       String val = field.getValue();
       if (field.isFinal() && val.length() != 0) {
-        sb.append(JLSConstants.EQUALTO + val);
+        fieldStringBuilder.append(JLSConstants.EQUALTO + val);
       }
-      sb.append(JLSConstants.END_OF_STATEMENT);
-      sb.append("\n");
+      fieldStringBuilder.append(JLSConstants.END_OF_STATEMENT);
+
+      sb.append(styler.outputLine(fieldStringBuilder.toString()));
     }
   }
 
