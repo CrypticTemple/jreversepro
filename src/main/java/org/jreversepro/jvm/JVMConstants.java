@@ -148,6 +148,11 @@ public interface JVMConstants {
   String ATTRIBUTE_INNERCLASSES = "InnerClasses";
 
   /**
+   * Signature attribute of a Method.
+   */
+  String ATTRIBUTE_SIGNATURE = "Signature";
+
+  /**
    * LineNumberTable attribute of a Method.
    */
   String ATTRIBUTE_LINENUMBERTABLE = "LineNumberTable";
@@ -156,6 +161,11 @@ public interface JVMConstants {
    * LocalVariableTable attribute of a Method.
    */
   String ATTRIBUTE_LOCALVARIABLETABLE = "LocalVariableTable";
+
+  /**
+   * LocalVariableTypeTable attribute of a Method.
+   */
+  String ATTRIBUTE_LOCALVARIABLETYPETABLE = "LocalVariableTypeTable";
 
   /**
    * SourceFile attribute of a Method.

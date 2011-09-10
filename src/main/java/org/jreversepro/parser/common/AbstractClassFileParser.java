@@ -516,6 +516,8 @@ public class AbstractClassFileParser {
       // TODO Should discuss with akkumar if he has implemented it
       // already in some other code location.
       AttributeParser.readInnerClasses(dis);
+    } else if (attrName.compareTo(JVMConstants.ATTRIBUTE_SIGNATURE) == 0) {
+      AttributeParser.readSignature(dis);
     }
   }
 

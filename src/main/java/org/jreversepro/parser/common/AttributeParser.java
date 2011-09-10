@@ -243,6 +243,19 @@ public final class AttributeParser {
   }
 
   /**
+   * Manipulates the Signature attribute.
+   *
+   * "Signature" (u4 attr-length, u2 signature-index)
+   *
+   * JSR-14 (Adding Generics to the Java Programming Language)
+   */
+  public static void readSignature(DataInputStream dis) throws IOException {
+    // TODO: Use this to implement generics
+    dis.readInt();
+    dis.readShort();
+  }
+
+  /**
    * Reads the possible attributes of Code.
    * <p>
    * Possible attributes of Code are <b> LineNumberTable </b> and <b>
@@ -266,6 +279,8 @@ public final class AttributeParser {
       readLineNumberTable(aDis);
     } else if (attrName.equals(JVMConstants.ATTRIBUTE_LOCALVARIABLETABLE)) {
       readLocalVariableTable(aDis, aCpInfo, method);
+    } else if (attrName.equals(JVMConstants.ATTRIBUTE_LOCALVARIABLETYPETABLE)) {
+      readLocalVariableTypeTable(aDis);
     }
   }
 
@@ -293,6 +308,36 @@ public final class AttributeParser {
     // TODO - New: Do some manipulation with the LineNumberTable
     // attribute..
     aDis.readFully(btRead);
+  }
+
+  /**
+   * Manipulates the LocalVariableTypeTable attribute.
+   * <p>
+   * LocalVariableTypeTable_attribute { u2 attribute_name_index; u4
+   * attribute_length; u2 local_variable_type_table_length; { u2 start_pc; u2 length;
+   * u2 name_index; u2 signature_index; u2 index; }
+   * local_variable_type_table[local_variable_type_table_length]; }
+   * 
+   * @param aDis
+   *          DataInputStream containing the bytes of the class.
+   * @throws IOException
+   *           Error in Class Stream of bytes.
+   * 
+   */
+  private static void readLocalVariableTypeTable(DataInputStream aDis) throws IOException {
+    int len = aDis.readInt();
+
+    short localVarTypeArrLen = aDis.readShort();
+
+    for (int ctr = 0; ctr < localVarTypeArrLen; ctr++) {
+      short startPc = aDis.readShort();
+      short length = aDis.readShort();
+      short nameIndex = aDis.readShort();
+      short descIndex = aDis.readShort();
+      short frameIndex = aDis.readShort();
+
+      /* TODO: Use this debug info */
+    }
   }
 
   /**
