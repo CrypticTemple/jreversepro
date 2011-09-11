@@ -110,6 +110,12 @@ public class BinaryOpExpression extends Expression {
     case MINUS:
       return lhs.getValueEx(L_SUB) + JLSConstants.MINUS
           + rhs.getValueEx(L_SUB + 1);
+    case SMART_PLUS:
+      return lhs.getValueEx(L_EVAL) + JLSConstants.SMART_PLUS
+          + rhs.getValueEx(L_EVAL);
+    case SMART_MINUS:
+      return lhs.getValueEx(L_EVAL) + JLSConstants.SMART_MINUS
+          + rhs.getValueEx(L_EVAL);
     case MULTIPLY:
       return lhs.getValueEx(L_MUL) + JLSConstants.MULTIPLY
           + rhs.getValueEx(L_MUL);
