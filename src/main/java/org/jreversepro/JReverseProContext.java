@@ -99,6 +99,9 @@ public class JReverseProContext {
     case DECOMPILER:
       printer = new DecompilerOutputter();
       break;
+    default:
+      printer = new DecompilerOutputter();
+      break;
     }
     return printer.output(info);
   }

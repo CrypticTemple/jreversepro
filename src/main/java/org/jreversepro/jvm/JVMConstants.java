@@ -168,6 +168,10 @@ public interface JVMConstants {
   String ATTRIBUTE_LOCALVARIABLETYPETABLE = "LocalVariableTypeTable";
 
   /**
+   * StackMapTable attribute of a Method
+   */
+   String ATTRIBUTE_STACKMAPTABLE = "StackMapTable";
+  /**
    * SourceFile attribute of a Method.
    */
   String ATTRIBUTE_SOURCEFILE = "SourceFile";

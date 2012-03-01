@@ -281,6 +281,8 @@ public final class AttributeParser {
       readLocalVariableTable(aDis, aCpInfo, method);
     } else if (attrName.equals(JVMConstants.ATTRIBUTE_LOCALVARIABLETYPETABLE)) {
       readLocalVariableTypeTable(aDis);
+    } else if (attrName.equals(JVMConstants.ATTRIBUTE_STACKMAPTABLE)) {
+      readStackMapTable(aDis, aCpInfo, method);
     }
   }
 
@@ -387,5 +389,11 @@ public final class AttributeParser {
 
   }
 
-
+    private static void readStackMapTable(DataInputStream aDis, ConstantPool aCpInfo, Method method) throws IOException {
+        int attrLentgh = aDis.readInt();
+        byte[] rawData = new byte[attrLentgh];
+        aDis.readFully(rawData);
+        
+        /* TODO: Use this debug info */
+    }
 }

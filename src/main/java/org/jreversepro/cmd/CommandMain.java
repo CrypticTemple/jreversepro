@@ -79,7 +79,7 @@ public class CommandMain {
     try {
       info = context.loadResource(cli.getInputResource());
 
-      System.out.println(context.print(cli.getOutputType(), info));
+    System.out.println(context.print(cli.getOutputType(), info));
 
     } catch (FileNotFoundException e) {
       LOGGER.severe(e.getMessage());
